@@ -1,5 +1,6 @@
 package ejercicio5;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Fecha {
@@ -10,32 +11,45 @@ public class Fecha {
         this.fecha = new GregorianCalendar();
     }
 
-    public Fecha(GregorianCalendar fecha) {
-        this.fecha = fecha;
+    public Fecha(int año, int mes, int dia) {
+        this.fecha = new GregorianCalendar(año, mes, dia);
     }
 
     @Override
     public String toString() {
-        return "Fecha{" +
-                "fecha=" + fecha +
-                '}';
+        return this.fecha.get(Calendar.DATE) + "/" +
+                this.fecha.get(Calendar.MONTH) + "/" +
+                this.fecha.get(Calendar.YEAR);
     }
 
-    public boolean esCorrectaFecha() {
-        return true;
-    }
 
     public void agregarUnDia() {
-
+        this.fecha.add(Calendar.DATE, 1);
     }
 
     //Getters and Setters
 
-    public GregorianCalendar getFecha() {
-        return fecha;
+    public int getDia() {
+        return this.fecha.get(Calendar.DATE);
     }
 
-    public void setFecha(GregorianCalendar fecha) {
-        this.fecha = fecha;
+    public void setDia(int dia) {
+        this.fecha.set(Calendar.DATE, dia);
+    }
+
+    public int getMes() {
+        return this.fecha.get(Calendar.MONTH);
+    }
+
+    public void setMes(int mes) {
+        this.fecha.set(Calendar.MONTH, mes);
+    }
+
+    public int getAño() {
+        return this.fecha.get(Calendar.YEAR);
+    }
+
+    public void setAño(int año) {
+        this.fecha.set(Calendar.YEAR, año);
     }
 }
